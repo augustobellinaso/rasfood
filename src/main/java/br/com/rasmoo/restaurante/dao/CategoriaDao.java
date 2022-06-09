@@ -16,7 +16,7 @@ public class CategoriaDao {
 		this.entityManager.persist(categoria);
 	}
 
-	public Categoria consultar(final Integer id) {
+	public Categoria consultarPorId(final Integer id) {
 		return this.entityManager.find(Categoria.class, id);
 	}
 

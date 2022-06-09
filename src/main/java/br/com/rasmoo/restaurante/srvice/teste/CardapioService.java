@@ -51,13 +51,15 @@ public class CardapioService {
 		entityManager.flush();
 		cardapioDao.cadastrar(salmao);
 		entityManager.flush();
-		logaPratoConsultado(1, cardapioDao);
-		logaPratoConsultado(2, cardapioDao);
+//		logaPratoConsultado(1, cardapioDao);
+//		logaPratoConsultado(2, cardapioDao);
+
+		cardapioDao.consultarTodos().forEach(e -> System.out.println("O prato consultado foi ==> " + e));
 
 		entityManager.close();
 	}
 
 	private static void logaPratoConsultado(Integer id, CardapioDao cardapioDao) {
-		System.out.println("O prato consultado foi ==> " + cardapioDao.consultar(id));
+		System.out.println("O prato consultado foi ==> " + cardapioDao.consultarPorId(id));
 	}
 }

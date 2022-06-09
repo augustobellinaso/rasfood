@@ -14,7 +14,6 @@ public class PratoDao {
 
 	public void cadastrar(final Prato prato) {
 		this.entityManager.persist(prato);
-		System.out.println("Entidade cadastrada ==> " + prato);
 	}
 
 	public Prato consultar(final Integer id) {
@@ -23,11 +22,9 @@ public class PratoDao {
 
 	public void atualizar(final Prato prato) {
 		this.entityManager.merge(prato);
-		System.out.println("Entidade atualizada ==> " + prato);
 	}
 
 	public void excluir(final Prato prato) {
 		this.entityManager.remove(prato);
-		System.out.println("Entidade removida ==> " + prato);
 	}
 }

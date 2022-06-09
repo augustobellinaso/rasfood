@@ -1,9 +1,11 @@
 package br.com.rasmoo.restaurante.srvice.teste;
 
+import br.com.rasmoo.restaurante.dao.CardapioDao;
 import br.com.rasmoo.restaurante.util.JPAUtil;
 import br.com.rasmoo.restaurante.util.PopulaDadosUtil;
 
 import javax.persistence.EntityManager;
+import java.math.BigDecimal;
 
 public class CardapioService {
 
@@ -13,6 +15,10 @@ public class CardapioService {
 		entityManager.getTransaction().begin();
 		PopulaDadosUtil.cadastarCategorias(entityManager);
 		PopulaDadosUtil.cadastrarProdutosCardapio(entityManager);
+
+		CardapioDao cardapioDao = new CardapioDao(entityManager);
+		System.out.println("LISTA DE PRODUTOS POR VALOR " + cardapioDao.consultarPorValor(new BigDecimal("59.00")));
+
 		entityManager.close();
 
 	}

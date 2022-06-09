@@ -20,6 +20,9 @@ public class Cardapio {
 
 	private BigDecimal valor;
 
+	@ManyToOne
+	private Categoria categoria;
+
 	@Column(name = "data_de_registro")
 	private LocalDateTime dataDeRegistro = LocalDateTime.now();
 
@@ -74,14 +77,23 @@ public class Cardapio {
 		this.dataDeRegistro = dataDeRegistro;
 	}
 
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
 	@Override
 	public String toString() {
-		return "Prato{" +
+		return "Cardapio{" +
 				"id=" + id +
 				", nome='" + nome + '\'' +
 				", descricao='" + descricao + '\'' +
 				", disponivel=" + disponivel +
 				", valor=" + valor +
+				", categoria=" + categoria +
 				", dataDeRegistro=" + dataDeRegistro +
 				'}';
 	}

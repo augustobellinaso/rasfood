@@ -1,5 +1,6 @@
 package br.com.rasmoo.restaurante.service.teste;
 
+import br.com.rasmoo.restaurante.dao.ClienteDao;
 import br.com.rasmoo.restaurante.dao.EnderecoDao;
 import br.com.rasmoo.restaurante.dao.OrdemDao;
 import br.com.rasmoo.restaurante.util.JPAUtil;
@@ -19,8 +20,11 @@ public class OrdemService {
 		OrdemDao ordemDao = new OrdemDao(entityManager);
 
 		EnderecoDao enderecoDao = new EnderecoDao(entityManager);
-		System.out.println(enderecoDao.consultarClientes("SP", "Sao Paulo", null));
-		System.out.println(enderecoDao.consultarClientesUsandoCriteria("SP", "Sao Paulo", null));
+//		System.out.println(enderecoDao.consultarClientes("SP", "Sao Paulo", null));
+//		System.out.println(enderecoDao.consultarClientesUsandoCriteria("SP", "Sao Paulo", null));
+
+		ClienteDao clienteDao = new ClienteDao(entityManager);
+		System.out.println(clienteDao.consultarTodos());
 
 		entityManager.getTransaction().commit();
 		entityManager.close();

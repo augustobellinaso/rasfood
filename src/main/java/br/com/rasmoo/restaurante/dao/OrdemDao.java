@@ -1,6 +1,7 @@
 package br.com.rasmoo.restaurante.dao;
 
 import br.com.rasmoo.restaurante.entity.Ordem;
+import br.com.rasmoo.restaurante.vo.ItensPrincipaisVo;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -26,16 +27,16 @@ public class OrdemDao {
 		return this.entityManager.createQuery(sql, Ordem.class).getResultList();
 	}
 
-	public List<Object[]> consultarItensMaisVendidos() {
+	public List<ItensPrincipaisVo> consultarItensMaisVendidos() {
 //		String sql = "SELECT c.nome, oc.quantidade FROM Ordem o JOIN OrdensCardapio oc ON o.id = oc.cardapio.id + JOIN Cardapio c ON oc.cardapio.id = c.id";
-		String sql = "SELECT c.nome, SUM(oc.quantidade) " +
+		String sql = "SELECT new br.com.rasmoo.restaurante.vo.ItensPrincipaisVo(c.nome, SUM(oc.quantidade))" +
 				"FROM Ordem o " +
 				"JOIN OrdensCardapio oc ON o.id = oc.cardapio.id " +
 				"JOIN oc.cardapio c " +
 				"GROUP BY c.nome " +
 				"ORDER BY SUM(oc.quantidade) DESC";
 
-		return this.entityManager.createQuery(sql, Object[].class).getResultList();
+		return this.entityManager.createQuery(sql, ItensPrincipaisVo.class).getResultList();
 	}
 
 	public void atualizar(final Ordem ordem) {

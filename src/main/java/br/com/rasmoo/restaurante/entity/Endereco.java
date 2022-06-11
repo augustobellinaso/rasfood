@@ -99,7 +99,6 @@ public class Endereco {
 				", complemento='" + complemento + '\'' +
 				", cidade='" + cidade + '\'' +
 				", estado='" + estado + '\'' +
-				", cliente=" + cliente +
 				'}';
 	}
 }

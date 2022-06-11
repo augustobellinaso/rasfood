@@ -5,7 +5,6 @@ import br.com.rasmoo.restaurante.entity.Cardapio;
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;
 import java.util.Collections;
-import java.util.Collections;
 import java.util.List;
 
 public class CardapioDao {

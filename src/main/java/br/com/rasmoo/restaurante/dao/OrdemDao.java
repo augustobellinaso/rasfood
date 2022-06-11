@@ -27,6 +27,11 @@ public class OrdemDao {
 		return this.entityManager.createQuery(sql, Ordem.class).getResultList();
 	}
 
+	public Ordem joinFetchCliente(final Integer id) {
+		String sql = "SELECT o FROM Ordem o JOIN FETCH o.cliente WHERE o.id = :id";
+		return this.entityManager.createQuery(sql, Ordem.class).setParameter("id", id).getSingleResult();
+	}
+
 	public List<ItensPrincipaisVo> consultarItensMaisVendidos() {
 //		String sql = "SELECT c.nome, oc.quantidade FROM Ordem o JOIN OrdensCardapio oc ON o.id = oc.cardapio.id + JOIN Cardapio c ON oc.cardapio.id = c.id";
 		String sql = "SELECT new br.com.rasmoo.restaurante.vo.ItensPrincipaisVo(c.nome, SUM(oc.quantidade))" +

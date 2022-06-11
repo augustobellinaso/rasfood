@@ -18,10 +18,13 @@ public class OrdemService {
 		PopulaDadosUtil.cadastrarOrdensClientes(entityManager);
 		OrdemDao ordemDao = new OrdemDao(entityManager);
 
-		Ordem ordem = ordemDao.consultarPorId(2);
-		System.out.println(ordem.getValorTotal());
+		Ordem ordem = ordemDao.joinFetchCliente(2);
+
+
+
 		entityManager.getTransaction().commit();
 		entityManager.close();
+		System.out.println(ordem.getCliente().getNome());
 
 	}
 }

@@ -11,7 +11,6 @@ public class Cliente {
 	@Id
 	private String cpf;
 
-
 	private String nome;
 
 	private String cep;

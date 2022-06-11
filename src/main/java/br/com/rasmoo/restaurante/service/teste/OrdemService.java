@@ -3,6 +3,7 @@ package br.com.rasmoo.restaurante.service.teste;
 import br.com.rasmoo.restaurante.dao.ClienteDao;
 import br.com.rasmoo.restaurante.dao.EnderecoDao;
 import br.com.rasmoo.restaurante.dao.OrdemDao;
+import br.com.rasmoo.restaurante.entity.ClienteId;
 import br.com.rasmoo.restaurante.util.JPAUtil;
 import br.com.rasmoo.restaurante.util.PopulaDadosUtil;
 
@@ -24,7 +25,7 @@ public class OrdemService {
 //		System.out.println(enderecoDao.consultarClientesUsandoCriteria("SP", "Sao Paulo", null));
 
 		ClienteDao clienteDao = new ClienteDao(entityManager);
-		System.out.println(clienteDao.consultarTodos());
+		System.out.println(clienteDao.consultarPorId(new ClienteId("calvin@email.com", "09876543210")));
 
 		entityManager.getTransaction().commit();
 		entityManager.close();

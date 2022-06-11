@@ -22,9 +22,8 @@ public class Ordem {
 	@ManyToOne
 	private Cliente cliente;
 
-	@ManyToMany
-	@JoinTable(name = "ordens_cardapio", joinColumns = @JoinColumn(name = "ordens_id"), inverseJoinColumns = @JoinColumn(name = "cardapio_id"))
-	private List<Cardapio> cardapioList;
+	@OneToMany
+	private List<OrdensCardapio> ordensCardapioList;
 
 	public Ordem() {
 	}
@@ -65,12 +64,12 @@ public class Ordem {
 		this.cliente = cliente;
 	}
 
-	public List<Cardapio> getCardapioList() {
-		return cardapioList;
+	public List<OrdensCardapio> getCardapioList() {
+		return ordensCardapioList;
 	}
 
-	public void setCardapioList(List<Cardapio> cardapioList) {
-		this.cardapioList = cardapioList;
+	public void setCardapioList(List<OrdensCardapio> ordensCardapioList) {
+		this.ordensCardapioList = ordensCardapioList;
 	}
 
 	@Override
@@ -80,7 +79,7 @@ public class Ordem {
 				", valorTotal=" + valorTotal +
 				", dataDeCriacao=" + dataDeCriacao +
 				", cliente=" + cliente +
-				", cardapioList=" + cardapioList +
+				", ordensCardapioList=" + ordensCardapioList +
 				'}';
 	}
 }

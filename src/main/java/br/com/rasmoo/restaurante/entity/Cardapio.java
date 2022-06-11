@@ -27,9 +27,6 @@ public class Cardapio {
 	@Column(name = "data_de_registro")
 	private LocalDateTime dataDeRegistro = LocalDateTime.now();
 
-	@ManyToMany(mappedBy = "cardapioList")
-	private List<Ordem> ordemList;
-
 	public Cardapio() {
 	}
 
@@ -97,14 +94,6 @@ public class Cardapio {
 		this.categoria = categoria;
 	}
 
-	public List<Ordem> getOrdemList() {
-		return ordemList;
-	}
-
-	public void setOrdemList(List<Ordem> ordemList) {
-		this.ordemList = ordemList;
-	}
-
 	@Override
 	public String toString() {
 		return "Cardapio{" +
@@ -115,7 +104,6 @@ public class Cardapio {
 				", valor=" + valor +
 				", categoria=" + categoria +
 				", dataDeRegistro=" + dataDeRegistro +
-				", ordemList=" + ordemList +
 				'}';
 	}
 }

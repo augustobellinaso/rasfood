@@ -1,4 +1,4 @@
-package br.com.rasmoo.restaurante.srvice.teste;
+package br.com.rasmoo.restaurante.service.teste;
 
 import br.com.rasmoo.restaurante.dao.CardapioDao;
 import br.com.rasmoo.restaurante.util.JPAUtil;

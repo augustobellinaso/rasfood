@@ -20,7 +20,7 @@ public class Cardapio {
 
 	private BigDecimal valor;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Categoria categoria;
 
 	@Column(name = "data_de_registro")

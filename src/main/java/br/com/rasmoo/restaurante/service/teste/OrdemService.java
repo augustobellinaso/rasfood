@@ -29,6 +29,7 @@ public class OrdemService {
 		augusto.addEndereco(endereco);
 		Ordem ordem = new Ordem(augusto);
 		ordem.addOrdensCardapio(new OrdensCardapio(cardapioDao.consultarPorId(1), 2));
+		ordem.addOrdensCardapio(new OrdensCardapio(cardapioDao.consultarPorId(2), 3));
 
 		clienteDao.cadastrar(augusto);
 		ordemDao.cadastrar(ordem);
